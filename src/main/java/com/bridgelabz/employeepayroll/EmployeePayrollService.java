@@ -59,4 +59,14 @@ public class EmployeePayrollService {
 		employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
 		
 	}
+
+	public long readDataFromFile(IOService fileIo) {
+		List<String> employeePayrollFromFile = new ArrayList<String>();
+		if(fileIo.equals(IOService.FILE_IO)) {
+			System.out.println("Employee Details from payroll-file.txt");
+			employeePayrollFromFile = new EmployeePayrollFileIOService().readDataFromFile();
+			
+		}
+		return employeePayrollFromFile.size();
+	}
 }
